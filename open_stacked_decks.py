@@ -60,37 +60,46 @@ def open_stacked_decks(amount):
         "y": STARTING_POSITIONS["inventory"]["first_slot"]["y"],
     }
     for i in range(amount_of_stacked_deck_stacks):
-        rows_to_check = 2
-        cols_to_check = 2
-        if not is_inventory_empty(rows=rows_to_check, cols=cols_to_check):
-            pyautogui.moveTo(
-                x=STARTING_POSITIONS["inventory"]["first_slot"]["x"]
-                + PIXEL_SIZES["inventory"]["slot"],
-                y=STARTING_POSITIONS["inventory"]["first_slot"]["y"]
-                + PIXEL_SIZES["inventory"]["slot"],
-            )
-            pyautogui.click()
-            from_inv(rows=rows_to_check, cols=cols_to_check)
+        pyautogui.moveTo(
+            x=STARTING_POSITIONS["inventory"]["first_slot"]["x"],
+            y=STARTING_POSITIONS["inventory"]["first_slot"]["y"]
+            + PIXEL_SIZES["inventory"]["slot"],
+        )
+        pyautogui.click()
+        rows_occupied = 5
+        cols_occupied = 5
 
-            # if not is_inventory_empty(rows=5, cols=12):
-            #     exit()
+        # if not is_inventory_empty(rows=rows_to_check, cols=cols_to_check):
+
+        #     from_inv(rows=rows_to_check, cols=cols_to_check)
+
+        # if not is_inventory_empty(rows=5, cols=12):
+        #     exit()
         get_stacked_deck()
         random_pause(SCRIPT_SPEED["medium"], SCRIPT_SPEED["slow"])
         print(i)
-        for j in range(stacked_deck_stack_size):
+
+        usable_cols = [1, 2, 3, 4]
+        start_x = STARTING_POSITIONS["inventory"]["first_slot"]["x"]
+        start_y = STARTING_POSITIONS["inventory"]["first_slot"]["y"]
+
+        for j in range(min(stacked_deck_stack_size, 20)):  # only 4x4 slots used
+            row = j // len(usable_cols)
+            col_index = j % len(usable_cols)
+            col = usable_cols[col_index]
+
+            target_x = start_x + col * PIXEL_SIZES["inventory"]["slot"]
+            target_y = start_y + row * PIXEL_SIZES["inventory"]["slot"]
+
             pull_card()
-            pyautogui.moveTo(
-                second_inventory_slot_position["x"],
-                second_inventory_slot_position["y"],
-                SCRIPT_SPEED["fast"],
-            )
+
+            pyautogui.moveTo(target_x, target_y, SCRIPT_SPEED["super_fast"])
             pyautogui.click()
-            random_pause(SCRIPT_SPEED["fast"], SCRIPT_SPEED["fast"])
-            move_item(
-                x=second_inventory_slot_position["x"],
-                y=second_inventory_slot_position["y"],
-            )
-            random_pause(SCRIPT_SPEED["fast"], SCRIPT_SPEED["fast"])
+            random_pause(SCRIPT_SPEED["super_fast"], SCRIPT_SPEED["super_fast"])
+
+            random_pause(SCRIPT_SPEED["super_fast"], SCRIPT_SPEED["super_fast"])
+
+        from_inv(rows=rows_occupied, cols=cols_occupied)
 
 
 decks_to_open = int(input("How many decks to open: "))
