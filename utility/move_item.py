@@ -1,5 +1,4 @@
 import pyautogui
-pyautogui.PAUSE = 0.03
 
 def move_item(x, y):
     pyautogui.keyDown("ctrl")

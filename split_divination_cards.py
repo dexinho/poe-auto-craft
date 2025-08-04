@@ -5,7 +5,7 @@ pyautogui.PAUSE = 0.05
 REGIONS = {"stash": (15, 120, 650, 630), "inventory": (1270, 590, 340, 260)}
 IMAGE_PATHS = {
     "currency": {
-        "divination_card": "./assets/pictures/divination_card.png",
+        "divination_card": "./assets/images/divination_card.png",
     }
 }
 STARTING_POSITIONS = {

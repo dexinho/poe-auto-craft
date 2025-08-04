@@ -1,7 +1,7 @@
 import pyautogui
 import math
 
-from utility.find_expensive_card import find_expensive_card
+from utility.find_image import find_image
 from utility.move_item import move_item
 from utility.horticraft import horticraft
 from utility.get_divination_craft_result import get_divination_craft_result
@@ -21,9 +21,9 @@ def expensive_craft():
 
     pyautogui.moveTo(100, 1000) # so it doesn't cover the inventory card
     
-    found_expensive_card = find_expensive_card(
+    found_expensive_card = find_image(
         region=REGIONS["expensive_card"],
-        folder=FOLDER_PATHS["pictures"][expensive_card_name]["inventory"],
+        folder=FOLDER_PATHS["images"][expensive_card_name]["inventory"],
         image_name=FILE_NAMES["expensive_card"],
     )
 
@@ -48,7 +48,7 @@ def expensive_craft():
 
         result = int(
             get_divination_craft_result(
-                folder=FOLDER_PATHS["pictures"][expensive_card_name]["horticrafting"],
+                folder=FOLDER_PATHS["images"][expensive_card_name]["horticrafting"],
                 stack_size=DIVINATION_CARDS[expensive_card_name]["stack_size"],
             )
         )

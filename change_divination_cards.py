@@ -14,7 +14,7 @@ MAX_RANDOM = 0.3
 def change_divination_cards(card_name, stack_size):
     focus_game()
     image_path = os.path.join(
-        FOLDER_PATHS["pictures"]["stash"]["logo"], FILE_NAMES["stash_logo"]
+        FOLDER_PATHS["images"]["stash"]["logo"], FILE_NAMES["stash_logo"]
     )
     pyautogui.locateOnScreen(image=image_path, confidence=0.8)
 

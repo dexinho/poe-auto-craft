@@ -110,7 +110,7 @@ def craftDivinationCards():
         random_pause(0.3, 0.4)
 
         cheap_divination_craft_result = get_divination_craft_result(
-            folder=FOLDER_PATHS["pictures"][cheap_card_name]["horticrafting"],
+            folder=FOLDER_PATHS["images"][cheap_card_name]["horticrafting"],
             stack_size=DIVINATION_CARDS[cheap_card_name]["stack_size"],
         )
 

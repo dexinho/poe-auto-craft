@@ -7,13 +7,13 @@ REGIONS = {
     "expensive_card": (1795, 590, 110, 260),
 }
 FOLDER_PATHS = {
-    "pictures": {
+    "images": {
         "imperial_legacy": {
-            "horticrafting": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\pictures\divination_cards\imperial_legacy\horticrafting",
+            "horticrafting": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\images\divination_cards\imperial_legacy\horticrafting",
         },
         "the_immortal": {
-            "horticrafting": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\pictures\divination_cards\the_immortal\horticrafting",
-            "inventory": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\pictures\divination_cards\the_immortal\inventory",
+            "horticrafting": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\images\divination_cards\the_immortal\horticrafting",
+            "inventory": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\assets\images\divination_cards\the_immortal\inventory",
         },
     },
     "logs": r"C:\Users\jasmi\Desktop\programming_2024\python\poe\auto_craft\logs",
@@ -60,7 +60,7 @@ sys.path.append(parent_dir)
 from utility.get_divination_craft_result import get_divination_craft_result
 
 divination_craft_result = get_divination_craft_result(
-    folder=FOLDER_PATHS["pictures"]["imperial_legacy"]['horticrafting'],
+    folder=FOLDER_PATHS["images"]["imperial_legacy"]['horticrafting'],
     stack_size=DIVINATION_CARDS["imperial_legacy"]["stack_size"],
 )
 
