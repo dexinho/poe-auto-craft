@@ -8,7 +8,7 @@ from utility.config import STARTING_POSITIONS, PIXEL_SIZES
 
 
 def from_inv(rows=5, cols=12):
-    pyautogui.PAUSE = 0.015
+    pyautogui.PAUSE = 0.02
     pyautogui.keyDown("ctrl")
     print('moving from inventory')
 

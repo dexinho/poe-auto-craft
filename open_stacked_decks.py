@@ -76,7 +76,7 @@ def open_stacked_decks(amount):
         # if not is_inventory_empty(rows=5, cols=12):
         #     exit()
         get_stacked_deck()
-        random_pause(SCRIPT_SPEED["medium"], SCRIPT_SPEED["slow"])
+        random_pause(SCRIPT_SPEED["fast"], SCRIPT_SPEED["medium"])
         print(i)
 
         usable_cols = [1, 2, 3, 4]
@@ -103,6 +103,6 @@ def open_stacked_decks(amount):
 
 
 decks_to_open = int(input("How many decks to open: "))
-for i in range(30):
+for i in range(50):
     open_stacked_decks(amount=decks_to_open)
     random_pause(5, 10)
