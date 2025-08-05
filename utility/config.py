@@ -58,7 +58,10 @@ FOLDER_PATHS = {
         "stash": {"logo": BASE_PATH / "assets" / "images" / "stash"},
         "currency": BASE_PATH / "assets" / "images" / "currency",
         "inventory": BASE_PATH / "assets" / "images" / "inventory",
-        "divination_card_trade": BASE_PATH / "assets" / "images" / "divination_card_trade",
+        "divination_card_trade": BASE_PATH
+        / "assets"
+        / "images"
+        / "divination_card_trade",
     },
     "logs": BASE_PATH / "logs",
     "pattern_history": BASE_PATH / "logs" / "pattern_history",
@@ -88,40 +91,44 @@ REGIONS = {
     ),
     "divination_card_trade": {
         "logo": scale_region(600, 100, 40, 40, display_settings=DISPLAY_SETTINGS),
-        'trade_button': scale_region(600, 720, 40, 40, display_settings=DISPLAY_SETTINGS),
+        "trade_button": scale_region(
+            600, 720, 40, 40, display_settings=DISPLAY_SETTINGS
+        ),
     },
 }
 
 STARTING_POSITIONS = {
+    "divination_card_trade": {
+        "card_slot": {
+            "x": scale_coordinates(630, 450, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(630, 450, display_settings=DISPLAY_SETTINGS)[1],
+        },
+        "trade_button": {
+            "x": scale_coordinates(630, 740, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(630, 740, display_settings=DISPLAY_SETTINGS)[1],
+        },
+    },
     "inventory": {
-        "first_slot": dict(
-            zip(
-                ["x", "y"],
-                scale_coordinates(1300, 615, display_settings=DISPLAY_SETTINGS),
-            )
-        ),
+        "first_slot": {
+            "x": scale_coordinates(1300, 615, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(1300, 615, display_settings=DISPLAY_SETTINGS)[1],
+        },
     },
     "horticrafting": {
         "x": scale_coordinates(820, 330, display_settings=DISPLAY_SETTINGS)[0],
         "y": scale_coordinates(820, 330, display_settings=DISPLAY_SETTINGS)[1],
-        "first_crafting_option": dict(
-            zip(
-                ["x", "y"],
-                scale_coordinates(560, 320, display_settings=DISPLAY_SETTINGS),
-            )
-        ),
-        "craft_button": dict(
-            zip(
-                ["x", "y"],
-                scale_coordinates(970, 610, display_settings=DISPLAY_SETTINGS),
-            )
-        ),
-        "crafting_slot": dict(
-            zip(
-                ["x", "y"],
-                scale_coordinates(970, 450, display_settings=DISPLAY_SETTINGS),
-            )
-        ),
+        "first_crafting_option": {
+            "x": scale_coordinates(560, 320, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(560, 320, display_settings=DISPLAY_SETTINGS)[1],
+        },
+        "craft_button": {
+            "x": scale_coordinates(970, 610, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(970, 610, display_settings=DISPLAY_SETTINGS)[1],
+        },
+        "crafting_slot": {
+            "x": scale_coordinates(970, 450, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(970, 450, display_settings=DISPLAY_SETTINGS)[1],
+        },
     },
     "stash": {
         "x": scale_coordinates(1030, 520, display_settings=DISPLAY_SETTINGS)[0],
@@ -129,25 +136,22 @@ STARTING_POSITIONS = {
         "divination_cards": {
             "x": scale_coordinates(750, 440, display_settings=DISPLAY_SETTINGS)[0],
             "y": scale_coordinates(750, 440, display_settings=DISPLAY_SETTINGS)[1],
-            "first_card": dict(
-                zip(
-                    ["x", "y"],
-                    scale_coordinates(130, 250, display_settings=DISPLAY_SETTINGS),
-                )
-            ),
+            "first_card": {
+                "x": scale_coordinates(130, 250, display_settings=DISPLAY_SETTINGS)[0],
+                "y": scale_coordinates(130, 250, display_settings=DISPLAY_SETTINGS)[1],
+            },
         },
         "currency": {
             "x": scale_coordinates(750, 110, display_settings=DISPLAY_SETTINGS)[0],
             "y": scale_coordinates(750, 110, display_settings=DISPLAY_SETTINGS)[1],
-            "stacked_deck": dict(
-                zip(
-                    ["x", "y"],
-                    scale_coordinates(550, 510, display_settings=DISPLAY_SETTINGS),
-                )
-            ),
+            "stacked_deck": {
+                "x": scale_coordinates(550, 510, display_settings=DISPLAY_SETTINGS)[0],
+                "y": scale_coordinates(550, 510, display_settings=DISPLAY_SETTINGS)[1],
+            },
         },
     },
 }
+
 
 FILE_NAMES = {
     "expensive_card": "the_immortal_inventory_4.png",
@@ -156,10 +160,9 @@ FILE_NAMES = {
     "stacked_deck": "stacked_deck.png",
     "empty_inventory_slot": "empty_inventory_slot.png",
     "divination_card_trade": {
-        'logo': 'divination_card_trade_logo.png',
-        'trade_button': 'divination_card_trade_trade_button.png'
-    }
-    
+        "logo": "divination_card_trade_logo.png",
+        "trade_button": "divination_card_trade_trade_button.png",
+    },
 }
 
 
@@ -189,5 +192,5 @@ SCRIPT_SPEED = {
     "slow": 0.5,
     "medium": 0.25,
     "fast": 0.1,
-    "super_fast": 0.025,
+    "super_fast": 0.04,
 }
