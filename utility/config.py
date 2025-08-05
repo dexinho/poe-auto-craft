@@ -55,7 +55,16 @@ FOLDER_PATHS = {
             / "the_apothecary"
             / "inventory",
         },
-        "stash": {"logo": BASE_PATH / "assets" / "images" / "stash"},
+        "stash": {
+            "logo": BASE_PATH / "assets" / "images" / "stash",
+            "divination_tab": {
+                "divination_card_not_found": BASE_PATH
+                / "assets"
+                / "images"
+                / "stash"
+                / "divination_tab"
+            },
+        },
         "currency": BASE_PATH / "assets" / "images" / "currency",
         "inventory": BASE_PATH / "assets" / "images" / "inventory",
         "divination_card_trade": BASE_PATH
@@ -77,18 +86,31 @@ LOGS = {
 
 
 REGIONS = {
-    "stash": scale_region(15, 120, 650, 630, display_settings=DISPLAY_SETTINGS),
-    "stash_logo": scale_region(310, 20, 40, 40, display_settings=DISPLAY_SETTINGS),
-    "inventory": scale_region(1270, 590, 640, 260, display_settings=DISPLAY_SETTINGS),
+    "stash": {
+        "area": scale_region(15, 120, 650, 630, display_settings=DISPLAY_SETTINGS),
+        "logo": scale_region(310, 20, 40, 40, display_settings=DISPLAY_SETTINGS),
+        "divination_tab": {
+            "first_card": scale_region(
+                90, 190, 40, 40, display_settings=DISPLAY_SETTINGS
+            )
+        },
+        "currency_tab": {
+            "extra_slots_area": scale_region(
+                140, 590, 390, 100, display_settings=DISPLAY_SETTINGS
+            )
+        },
+    },
+    "inventory": {
+        "area": scale_region(1270, 590, 640, 260, display_settings=DISPLAY_SETTINGS)
+    },
     "expensive_card": scale_region(
         1795, 590, 110, 260, display_settings=DISPLAY_SETTINGS
     ),
-    "horticrafting_divination_stack": scale_region(
-        947, 427, 13, 13, display_settings=DISPLAY_SETTINGS
-    ),
-    "currency_tab_extra_slots_area": scale_region(
-        140, 590, 390, 100, display_settings=DISPLAY_SETTINGS
-    ),
+    "horticrafting_station": {
+        "divination_stack": scale_region(
+            947, 427, 13, 13, display_settings=DISPLAY_SETTINGS
+        ),
+    },
     "divination_card_trade": {
         "logo": scale_region(600, 100, 40, 40, display_settings=DISPLAY_SETTINGS),
         "trade_button": scale_region(
@@ -133,12 +155,12 @@ STARTING_POSITIONS = {
     "stash": {
         "x": scale_coordinates(1030, 520, display_settings=DISPLAY_SETTINGS)[0],
         "y": scale_coordinates(1030, 520, display_settings=DISPLAY_SETTINGS)[1],
-        "divination_cards": {
+        "divination_tab": {
             "x": scale_coordinates(750, 440, display_settings=DISPLAY_SETTINGS)[0],
             "y": scale_coordinates(750, 440, display_settings=DISPLAY_SETTINGS)[1],
             "first_card": {
-                "x": scale_coordinates(130, 250, display_settings=DISPLAY_SETTINGS)[0],
-                "y": scale_coordinates(130, 250, display_settings=DISPLAY_SETTINGS)[1],
+                "x": scale_coordinates(100, 200, display_settings=DISPLAY_SETTINGS)[0],
+                "y": scale_coordinates(100, 200, display_settings=DISPLAY_SETTINGS)[1],
             },
         },
         "currency": {
@@ -150,13 +172,35 @@ STARTING_POSITIONS = {
             },
         },
     },
+    "npc": {
+        "shop": {
+            "sell": {
+                "accept_button": {
+                    "x": scale_coordinates(410, 870, display_settings=DISPLAY_SETTINGS)[
+                        0
+                    ],
+                    "y": scale_coordinates(410, 870, display_settings=DISPLAY_SETTINGS)[
+                        1
+                    ],
+                }
+            }
+        },
+        "lilly_roth": {
+            "x": scale_coordinates(1020, 320, display_settings=DISPLAY_SETTINGS)[0],
+            "y": scale_coordinates(1020, 320, display_settings=DISPLAY_SETTINGS)[1],
+        },
+    },
 }
-
 
 FILE_NAMES = {
     "expensive_card": "the_immortal_inventory_4.png",
     "ultimate_model": "ultimate_model_v7.joblib",
-    "stash_logo": "stash_logo.png",
+    "stash": {
+        "stash_logo": "stash_logo.png",
+        "divination_tab": {
+            "divination_card_not_found": "divination_card_not_found.png"
+        },
+    },
     "stacked_deck": "stacked_deck.png",
     "empty_inventory_slot": "empty_inventory_slot.png",
     "divination_card_trade": {
@@ -167,6 +211,23 @@ FILE_NAMES = {
 
 
 PIXEL_SIZES = {"inventory": {"slot": 53}}
+
+BAD_DIVINATION_CARDS = [
+    "The lover",
+    "Prosperity",
+    "The Flora's Gift",
+    "The Doppelganger",
+    "Lantador's Lost Love",
+    "The Hermit",
+    "The Witch",
+    "Rats",
+    "A Sea of Blue",
+    "Gemcutter's Promise",
+    "The Arena Champion",
+    "Emperor's Luck",
+    "The Harvester",
+    "Thirst for Knowledge",
+]
 
 DIVINATION_CARDS = {
     "imperial_legacy": {"stack_size": 22},

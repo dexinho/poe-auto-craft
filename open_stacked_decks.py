@@ -9,24 +9,23 @@ from utility.config import (
     FILE_NAMES,
     SCRIPT_SPEED,
 )
-from utility.move_item import move_item
+from utility.move_items import move_single, move_from_inventory
 from utility.focus_game import focus_game
 from utility.radnom_pause import random_pause
 from utility.find_image import find_image
 from utility.is_inventory_empty import is_inventory_empty
-from utility.from_inv import from_inv
 
 
 def get_stacked_deck():
     image_name = FILE_NAMES["stacked_deck"]
     image_result = find_image(
-        region=REGIONS["currency_tab_extra_slots_area"],
+        region=REGIONS["stash"]["currency_tab"]["extra_slots_area"],
         image_name=image_name,
         folder=FOLDER_PATHS["images"]["currency"],
     )
 
     if image_result["is_found"]:
-        move_item(
+        move_single(
             x=image_result["position"]["x"],
             y=image_result["position"]["y"],
         )
@@ -69,8 +68,8 @@ def open_stacked_decks(amount):
     focus_game()
     stash_logo_result = find_image(
         folder=FOLDER_PATHS["images"]["stash"]["logo"],
-        image_name=FILE_NAMES["stash_logo"],
-        region=REGIONS["stash_logo"],
+        image_name=FILE_NAMES["stash"]["stash_logo"],
+        region=REGIONS["stash"]["logo"],
     )
     if not stash_logo_result["is_found"]:
         exit()
@@ -111,7 +110,7 @@ def open_stacked_decks(amount):
             pyautogui.click()
             random_pause(SCRIPT_SPEED["super_fast"], SCRIPT_SPEED["super_fast"])
 
-        from_inv(rows=rows_occupied, cols=cols_occupied)
+        move_from_inventory(rows=rows_occupied, cols=cols_occupied)
 
 
 decks_to_open = int(input("How many decks to open: "))

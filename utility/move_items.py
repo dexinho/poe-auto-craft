@@ -7,10 +7,10 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from utility.config import STARTING_POSITIONS, PIXEL_SIZES
 
 
-def from_inv(rows=5, cols=12):
+def move_from_inventory(rows=5, cols=12):
     pyautogui.PAUSE = 0.02
     pyautogui.keyDown("ctrl")
-    print('moving from inventory')
+    print("moving from inventory")
 
     slot_size = PIXEL_SIZES["inventory"]["slot"]
     start_x = STARTING_POSITIONS["inventory"]["first_slot"]["x"]
@@ -25,4 +25,16 @@ def from_inv(rows=5, cols=12):
 
     pyautogui.keyUp("ctrl")
 
-# from_inv()
+
+def move_single(x, y):
+    pyautogui.keyDown("ctrl")
+    pyautogui.moveTo(x, y)
+    pyautogui.click()
+    pyautogui.keyUp("ctrl")
+
+
+def move_all(x, y):
+    pyautogui.keyDown("ctrl")
+    pyautogui.moveTo(x, y)
+    pyautogui.rightClick()
+    pyautogui.keyUp("ctrl")

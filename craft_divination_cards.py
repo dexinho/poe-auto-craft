@@ -12,7 +12,7 @@ from utility.config import (
 )
 from utility.get_divination_craft_result import get_divination_craft_result
 from utility.manage_file import update_file, read_file, clear_file
-from utility.move_item import move_item
+from utility.move_item import move_single
 from utility.horticraft import horticraft
 from utility.expensive_craft import expensive_craft
 from utility.radnom_pause import random_pause
@@ -98,7 +98,7 @@ def craftDivinationCards():
         row = current_pos // cols
         col = current_pos % cols
 
-        move_item(
+        move_single(
             x=STARTING_POSITIONS["inventory"]["first_slot"]["x"]
             + col * PIXEL_SIZES["inventory"]["slot"],
             y=STARTING_POSITIONS["inventory"]["first_slot"]["y"]

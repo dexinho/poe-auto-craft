@@ -2,7 +2,7 @@ import pyautogui
 import math
 
 from utility.find_image import find_image
-from utility.move_item import move_item
+from utility.move_item import move_single
 from utility.horticraft import horticraft
 from utility.get_divination_craft_result import get_divination_craft_result
 from utility.config import (
@@ -31,7 +31,7 @@ def expensive_craft():
         print("Expensive card not found on screen.")
         exit()
 
-    move_item(
+    move_single(
         x=found_expensive_card["position"]["x"], y=found_expensive_card["position"]["y"]
     )
 

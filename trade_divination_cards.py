@@ -13,7 +13,7 @@ from utility.config import (
     REGIONS,
     SCRIPT_SPEED,
 )
-from utility.move_item import move_item
+from utility.move_item import move_single
 from utility.find_image import find_image
 from utility.radnom_pause import random_pause
 
@@ -30,7 +30,7 @@ def trade_card():
 def get_traded_result():
     card_slot_x = STARTING_POSITIONS["divination_card_trade"]["card_slot"]["x"]
     card_slot_y = STARTING_POSITIONS["divination_card_trade"]["card_slot"]["y"]
-    move_item(card_slot_x, card_slot_y)
+    move_single(card_slot_x, card_slot_y)
 
 
 def trade_divination_cards(rows, cols):
@@ -53,7 +53,7 @@ def trade_divination_cards(rows, cols):
         for i in range(rows):
             x = start_x + j * slot_size
             y = start_y + i * slot_size
-            move_item(x, y)
+            move_single(x, y)
             time.sleep(script_speed)
             trade_card()
             time.sleep(script_speed)

@@ -24,7 +24,7 @@ def images_are_equal(img1, img2):
 
 def get_divination_craft_result(folder, stack_size):
     target_image = pyautogui.screenshot(
-        region=REGIONS["horticrafting_divination_stack"]
+        region=REGIONS["horticrafting_station"]["divination_stack"]
     ).convert("RGB")
     card_number = 1
 

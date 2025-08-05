@@ -5,7 +5,7 @@ from utility.find_image import find_image
 def is_inventory_empty(rows=5, cols=12):
     image_name = FILE_NAMES["empty_inventory_slot"]
     slot_size = PIXEL_SIZES["inventory"]["slot"]
-    region_x, region_y, _, _ = REGIONS["inventory"]
+    region_x, region_y, _, _ = REGIONS["inventory"]["area"]
 
     for i in range(rows):
         for j in range(cols):

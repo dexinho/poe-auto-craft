@@ -2,7 +2,7 @@ import pyautogui
 import os
 
 from utility.config import STARTING_POSITIONS, PIXEL_SIZES, FOLDER_PATHS, FILE_NAMES
-from utility.move_item import move_item
+from utility.move_items import move_single
 from utility.horticraft import horticraft
 from utility.radnom_pause import random_pause
 from utility.focus_game import focus_game
@@ -14,7 +14,7 @@ MAX_RANDOM = 0.3
 def change_divination_cards(card_name, stack_size):
     focus_game()
     image_path = os.path.join(
-        FOLDER_PATHS["images"]["stash"]["logo"], FILE_NAMES["stash_logo"]
+        FOLDER_PATHS["images"]["stash"]["logo"], FILE_NAMES['stash']["stash_logo"]
     )
     pyautogui.locateOnScreen(image=image_path, confidence=0.8)
 
@@ -34,8 +34,8 @@ def change_divination_cards(card_name, stack_size):
     for i in range(0, total_slots, stack_size):  # Go in steps of 6 slots
         # Click on the divination card
         pyautogui.moveTo(
-            STARTING_POSITIONS["stash"]["divination_cards"]["first_card"]["x"],
-            STARTING_POSITIONS["stash"]["divination_cards"]["first_card"]["y"],
+            STARTING_POSITIONS["stash"]["divination_tab"]["first_card"]["x"],
+            STARTING_POSITIONS["stash"]["divination_tab"]["first_card"]["y"],
         )
         pyautogui.click()
 
@@ -85,7 +85,7 @@ def change_divination_cards(card_name, stack_size):
         row = current_pos // cols
         col = current_pos % cols
 
-        move_item(
+        move_single(
             x=STARTING_POSITIONS["inventory"]["first_slot"]["x"]
             + col * PIXEL_SIZES["inventory"]["slot"],
             y=STARTING_POSITIONS["inventory"]["first_slot"]["y"]
@@ -127,7 +127,7 @@ def change_divination_cards(card_name, stack_size):
         row = current_pos // cols
         col = current_pos % cols
 
-        move_item(
+        move_single(
             x=STARTING_POSITIONS["inventory"]["first_slot"]["x"]
             + col * PIXEL_SIZES["inventory"]["slot"],
             y=STARTING_POSITIONS["inventory"]["first_slot"]["y"]
