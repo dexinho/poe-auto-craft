@@ -111,8 +111,6 @@ def open_stacked_decks(amount):
             pyautogui.click()
             random_pause(SCRIPT_SPEED["super_fast"], SCRIPT_SPEED["super_fast"])
 
-            random_pause(SCRIPT_SPEED["super_fast"], SCRIPT_SPEED["super_fast"])
-
         from_inv(rows=rows_occupied, cols=cols_occupied)
 
 

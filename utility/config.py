@@ -192,5 +192,5 @@ SCRIPT_SPEED = {
     "slow": 0.5,
     "medium": 0.25,
     "fast": 0.1,
-    "super_fast": 0.04,
+    "super_fast": 0.03,
 }
