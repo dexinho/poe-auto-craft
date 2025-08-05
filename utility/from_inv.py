@@ -25,4 +25,4 @@ def from_inv(rows=5, cols=12):
 
     pyautogui.keyUp("ctrl")
 
-# from_inv()
+from_inv()

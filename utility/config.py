@@ -58,6 +58,7 @@ FOLDER_PATHS = {
         "stash": {"logo": BASE_PATH / "assets" / "images" / "stash"},
         "currency": BASE_PATH / "assets" / "images" / "currency",
         "inventory": BASE_PATH / "assets" / "images" / "inventory",
+        "divination_card_trade": BASE_PATH / "assets" / "images" / "divination_card_trade",
     },
     "logs": BASE_PATH / "logs",
     "pattern_history": BASE_PATH / "logs" / "pattern_history",
@@ -85,6 +86,10 @@ REGIONS = {
     "currency_tab_extra_slots_area": scale_region(
         140, 590, 390, 100, display_settings=DISPLAY_SETTINGS
     ),
+    "divination_card_trade": {
+        "logo": scale_region(600, 100, 40, 40, display_settings=DISPLAY_SETTINGS),
+        'trade_button': scale_region(600, 720, 40, 40, display_settings=DISPLAY_SETTINGS),
+    },
 }
 
 STARTING_POSITIONS = {
@@ -150,6 +155,11 @@ FILE_NAMES = {
     "stash_logo": "stash_logo.png",
     "stacked_deck": "stacked_deck.png",
     "empty_inventory_slot": "empty_inventory_slot.png",
+    "divination_card_trade": {
+        'logo': 'divination_card_trade_logo.png',
+        'trade_button': 'divination_card_trade_trade_button.png'
+    }
+    
 }
 
 
